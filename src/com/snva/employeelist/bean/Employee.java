@@ -22,6 +22,17 @@ public class Employee
 	{
 		m_employeeId=current_id++;
 	}
+	public Employee(int m_employeeId, String m_firstName, String m_lastName, String m_designation, Double m_contactNumber, Double m_salary, Date m_dateOfBirth,Date m_dateOfJoining)
+	{
+		this.m_employeeId = m_employeeId;
+		this.m_firstName = m_firstName;
+		this.m_lastName = m_lastName;
+		this.m_designation = m_designation;
+		this.m_contactNumber = m_contactNumber;
+		this.m_salary = m_salary;
+		this.m_dateOfBirth = m_dateOfBirth;
+		this.m_dateOfJoining = m_dateOfJoining;
+	}
 	public Double getContactNumber() {
 		return m_contactNumber;
 	}

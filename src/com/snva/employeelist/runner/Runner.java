@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.snva.employeelist.bean.Employee;
+//import com.snva.employeelist.db.DbFeatures;
 import com.snva.employeelist.uiservice.EmployeeUIServiceImpl;
 import com.snva.employeelist.uiservice.IEmployeeUIService;
 import com.snva.employeelist.util.ReadUtil;
-
 /**
  *This is the Runner class
  */
@@ -15,6 +15,7 @@ public class Runner
 {
 	private ReadUtil m_readUtil;
 	private IEmployeeUIService m_EmployeeUIService;
+	//private DbFeatures db;
 
 	/**
 	 *This is a default constructor of the class

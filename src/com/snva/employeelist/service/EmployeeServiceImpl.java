@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import com.snva.employeelist.bean.Employee;
+import com.snva.employeelist.db.DbFeatures;
 import com.snva.employeelist.service.exception.EmployeeServiceException;
 import com.snva.employeelist.util.ReadUtil;
 
@@ -20,7 +21,7 @@ import com.snva.employeelist.util.ReadUtil;
 public class EmployeeServiceImpl implements IEmployeeService
 {
 	List<Employee> employeelist;
-
+	private DbFeatures db;
 	ReadUtil m_readUtil;
 	/**
 	 *This is a default constructor of the class which creates objects of
@@ -28,8 +29,8 @@ public class EmployeeServiceImpl implements IEmployeeService
 	 */
 	public EmployeeServiceImpl()
 	{
-		employeelist = new ArrayList<Employee>();
-
+		db = new DbFeatures();
+		employeelist = db.import_list();
 		m_readUtil=new ReadUtil();
 	}
 	/**
@@ -50,6 +51,7 @@ public class EmployeeServiceImpl implements IEmployeeService
 		try
 		{
 		    employeelist.add(employee);
+		    db.export_employee(employee);
 
 		}catch(UnsupportedOperationException e){
 			System.out.println(e.getMessage());
@@ -97,6 +99,7 @@ public class EmployeeServiceImpl implements IEmployeeService
 			{
 				Employee employee=employeelist1.get(0);
 				employeelist.remove(employee);
+				db.remove_employee(employee);
 				System.out.println("Employee Removed successfully");
 			}
 			else
@@ -105,6 +108,7 @@ public class EmployeeServiceImpl implements IEmployeeService
 					index1=index1-1;
 					Employee employee=employeelist1.get(index1);
 					employeelist.remove(employee);
+					db.remove_employee(employee);
 					System.out.println("Employee Removed successfully");
 				}
 
